@@ -81,6 +81,53 @@ radial-gradient(circle at bottom right,#7b2ff722,transparent 40%);
 
 z-index:-2;
 
+   ```css
+/* =====================================
+   Visitor Counter
+===================================== */
+
+.visitor-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin: 18px auto 12px;
+    padding: 10px 18px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+
+    backdrop-filter: blur(15px);
+
+    color: var(--secondary);
+    font-size: 14px;
+    font-weight: 500;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+
+    transition: .35s ease;
+}
+
+.visitor-counter i {
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.visitor-counter strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.visitor-counter:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(41,151,255,.2);
+}
+```
+
+
 }
 
 /* Cursor Glow */
@@ -954,6 +1001,38 @@ transparent);
 animation:footerGlow 8s linear infinite;
 
 }
+
+
+```html
+<footer>
+
+    <h3>Syed Awsaf Zarif</h3>
+
+    <p>
+        Developer • Gamer • Creator
+    </p>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter">
+
+        <i class="fa-solid fa-eye"></i>
+
+        <span>Visitors:</span>
+
+        <strong id="visitor-count">
+            Loading...
+        </strong>
+
+    </div>
+
+    <p>
+        Designed & Developed by
+        Syed Awsaf Zarif © 2026
+    </p>
+
+</footer>
+```
+
 
 @keyframes footerGlow{
 
