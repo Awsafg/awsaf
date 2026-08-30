@@ -61,6 +61,12 @@ window.addEventListener("scroll", () => {
 // Dark / Light Mode
 // ============================
 
+<div class="visitor-counter">
+    <i class="fa-solid fa-eye"></i>
+    <span>Visitors:</span>
+    <strong id="visitor-count">Loading...</strong>
+</div>
+
 const themeToggle = document.getElementById("themeToggle");
 
 if(localStorage.getItem("theme") === "light"){
