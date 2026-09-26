@@ -1,360 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Syed Awsaf Zarif | Developer • Gamer • Creator</title>
-
-    <meta name="description" content="Official website of Syed Awsaf Zarif">
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syed Awsaf Zarif | Developer • Gamer • Creator</title>
+  <meta name="description" content="Official website of Syed Awsaf Zarif">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    #birthday-surprise[hidden] { display: none; }
+    #birthday-surprise {
+      position: fixed; inset: 0; z-index: 2147483647;
+      display: grid; place-items: center; overflow: hidden; padding: 20px;
+      background: rgba(12, 10, 30, .88); text-align: center;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    .birthday-card {
+      position: relative; z-index: 2; width: min(100%, 480px);
+      padding: 42px 28px; border: 1px solid rgba(255,255,255,.25);
+      border-radius: 24px; background: linear-gradient(135deg, #7545d8, #e84794);
+      color: white; box-shadow: 0 24px 80px rgba(0,0,0,.4);
+      animation: birthday-appear .5s ease-out;
+    }
+    .birthday-card h2 { margin: 0 0 12px; font-size: clamp(2rem, 8vw, 3.5rem); }
+    .birthday-card p { line-height: 1.6; }
+    #birthday-close {
+      margin-top: 14px; padding: 12px 22px; border: 0; border-radius: 999px;
+      background: white; color: #6330af; font: 600 1rem Inter, system-ui, sans-serif;
+      cursor: pointer;
+    }
+    .birthday-confetti {
+      position: absolute; top: -20px; width: 10px; height: 18px;
+      opacity: .9; pointer-events: none; animation: birthday-fall linear forwards;
+    }
+    @keyframes birthday-appear {
+      from { opacity: 0; transform: scale(.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes birthday-fall { to { transform: translateY(110vh) rotate(720deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .birthday-card, .birthday-confetti { animation: none; }
+      .birthday-confetti { display: none; }
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- Loading Screen -->
-<div id="loader">
-    <h1>SAZ</h1>
-    <p>Loading...</p>
-</div>
-
-<!-- Mouse Glow -->
-<div id="cursor-glow"></div>
-
-<!-- Navigation -->
-<header>
-
-<nav class="navbar">
-
-<div class="logo">
-    <img src="IMG_0990.PNG" alt="Logo" class="logo-img">
-</div>
-
-<ul class="nav-links">
-
-<li><a href="#home">Home</a></li>
-
-<li><a href="#about">About</a></li>
-
-<!-- <li><a href="#projects">Projects</a></li> -->
-
-<li><a href="#socials">Socials</a></li>
-
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<button id="themeToggle">
-    <i class="fa-solid fa-moon"></i>
-</button>
-
-</nav>
-
-</header>
-
-<!-- Hero Section -->
-
-<section id="home" class="hero">
-
-<div class="hero-content">
-
-<img src="IMG_0990.PNG"
-alt="Profile Picture"
-class="profile">
-
-<h1>
-Syed Awsaf Zarif
-</h1>
-
-<h2 id="typing"></h2>
-
-<p>
-
-Welcome to my official website.
-
-I'm a passionate developer, gamer, and creator who loves building cool projects, learning new technology, and creating amazing experiences.
-
-</p>
-
-<a href="#socials" class="primary-btn">
-Connect With Me
-</a>
-
-</div>
-
-</section>
-
-<!-- About -->
-
-<section id="about">
-
-<div class="section-title">
-
-<h2>About Me</h2>
-
-<p>
-A little about who I am.
-</p>
-
-</div>
-
-<div class="about-grid">
-
-<div class="card">
-
-<i class="fa-solid fa-code"></i>
-
-<h3>Developer</h3>
-
-<p>
-
-I enjoy creating websites, experimenting with technology, and constantly improving my programming skills.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-gamepad"></i>
-
-<h3>Gamer</h3>
-
-<p>
-
-Gaming has inspired my creativity and helped me appreciate beautiful design and interactive experiences.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-lightbulb"></i>
-
-<h3>Creator</h3>
-
-<p>
-
-I enjoy building projects that combine creativity with technology while continuously learning new skills.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ===========================
-     Projects Section
-=========================== -->
-
-<section id="projects" style="display: none;">
-
-    <div class="section-title">
-        <h2>Projects</h2>
-        <p>Some of my favorite work.</p>
+  <!-- Loading Screen -->
+  <div id="loader"><h1>SAZ</h1><p>Loading...</p></div>
+  <!-- Mouse Glow -->
+  <div id="cursor-glow"></div>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="IMG_0990.PNG" alt="Logo" class="logo-img"></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <!-- <li><a href="#projects">Projects</a></li> -->
+        <li><a href="#socials">Socials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="IMG_0990.PNG" alt="Profile Picture" class="profile">
+      <h1>Syed Awsaf Zarif</h1>
+      <h2 id="typing"></h2>
+      <p>Welcome to my official website. I'm a passionate developer, gamer, and creator who loves building cool projects, learning new technology, and creating amazing experiences.</p>
+      <a href="#socials" class="primary-btn">Connect With Me</a>
     </div>
-
+  </section>
+  <!-- About -->
+  <section id="about">
+    <div class="section-title"><h2>About Me</h2><p>A little about who I am.</p></div>
+    <div class="about-grid">
+      <div class="card"><i class="fa-solid fa-code"></i><h3>Developer</h3><p>I enjoy creating websites, experimenting with technology, and constantly improving my programming skills.</p></div>
+      <div class="card"><i class="fa-solid fa-gamepad"></i><h3>Gamer</h3><p>Gaming has inspired my creativity and helped me appreciate beautiful design and interactive experiences.</p></div>
+      <div class="card"><i class="fa-solid fa-lightbulb"></i><h3>Creator</h3><p>I enjoy building projects that combine creativity with technology while continuously learning new skills.</p></div>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="projects" style="display: none;">
+    <div class="section-title"><h2>Projects</h2><p>Some of my favorite work.</p></div>
     <div class="projects-grid">
-
-        <div class="project-card">
-            <h3>Personal Website</h3>
-
-            <p>
-                My Apple-inspired personal website built using HTML,
-                CSS and JavaScript.
-            </p>
-
-            <div class="project-buttons">
-                <a href="#">Live Demo</a>
-                <a href="#">Source Code</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <h3>Future Project</h3>
-
-            <p>
-                This space is reserved for another awesome project.
-            </p>
-
-            <div class="project-buttons">
-                <a href="#">Coming Soon</a>
-            </div>
-        </div>
-
+      <div class="project-card"><h3>Personal Website</h3><p>My Apple-inspired personal website built using HTML, CSS and JavaScript.</p><div class="project-buttons"><a href="#">Live Demo</a><a href="#">Source Code</a></div></div>
+      <div class="project-card"><h3>Future Project</h3><p>This space is reserved for another awesome project.</p><div class="project-buttons"><a href="#">Coming Soon</a></div></div>
     </div>
-
-</section>
-
-<!-- ===========================
-     Socials
-=========================== -->
-
-<section id="socials">
-
-    <div class="section-title">
-        <h2>Let's Connect</h2>
-        <p>Find me on my favorite platforms.</p>
-    </div>
-
+  </section>
+  <!-- Socials -->
+  <section id="socials">
+    <div class="section-title"><h2>Let's Connect</h2><p>Find me on my favorite platforms.</p></div>
     <div class="social-grid">
-
-        <a href="https://www.instagram.com/syed_awsaf_zarif/?hl=en"
-        target="_blank"
-        class="social-card instagram">
-
-            <i class="fab fa-instagram"></i>
-
-            <span>Instagram</span>
-
-        </a>
-
-        <a href="https://snapchat.com/t/u5A3s7uX"
-        target="_blank"
-        class="social-card snapchat">
-
-            <i class="fab fa-snapchat"></i>
-
-            <span>Snapchat</span>
-
-        </a>
-
-        <a href="https://discord.com/invite/gjMPNrNsXy"
-        target="_blank"
-        class="social-card discord">
-
-            <i class="fab fa-discord"></i>
-
-            <span>Discord</span>
-
-        </a>
-
-        <a href="https://www.roblox.com/users/4768178750/profile"
-        target="_blank"
-        class="social-card roblox">
-
-            <i class="fas fa-cube"></i>
-
-            <span>Roblox</span>
-
-        </a>
-
-        <a href="mailto:syedawsafzarif@gmail.com"
-        class="social-card email">
-
-            <i class="fas fa-envelope"></i>
-
-            <span>Email</span>
-
-        </a>
-
+      <a href="https://www.instagram.com/syed_awsaf_zarif/?hl=en" target="_blank" class="social-card instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+      <a href="https://snapchat.com/t/u5A3s7uX" target="_blank" class="social-card snapchat"><i class="fab fa-snapchat"></i><span>Snapchat</span></a>
+      <a href="https://discord.com/invite/gjMPNrNsXy" target="_blank" class="social-card discord"><i class="fab fa-discord"></i><span>Discord</span></a>
+      <a href="https://www.roblox.com/users/4768178750/profile" target="_blank" class="social-card roblox"><i class="fas fa-cube"></i><span>Roblox</span></a>
+      <a href="mailto:syedawsafzarif@gmail.com" class="social-card email"><i class="fas fa-envelope"></i><span>Email</span></a>
     </div>
-
-</section>
-
-<!-- ===========================
-     Contact
-=========================== -->
-
-<section id="contact">
-
-    <div class="section-title">
-        <h2>Contact Me</h2>
-        <p>Feel free to send me a message.</p>
-    </div>
-
-   <form
-    class="contact-form"
-    action="https://formspree.io/f/xgoglbqa"
-    method="POST">
-
-      <input
-    type="text"
-    name="name"
-    placeholder="Your Name"
-    required>
-
-    <input
-    type="email"
-    name="email"
-    placeholder="Your Email"
-    required>
-
-        <textarea
-        name="message"
-        rows="6"
-        placeholder="Your Message"
-        required></textarea>
-
-        <button type="submit">
-
-            Send Message
-
-        </button>
-
+  </section>
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-title"><h2>Contact Me</h2><p>Feel free to send me a message.</p></div>
+    <form class="contact-form" action="https://formspree.io/f/xgoglbqa" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <h3>Syed Awsaf Zarif</h3><p>Developer • Gamer • Creator</p>
+    <p>Designed &amp; Developed by Syed Awsaf Zarif © 2026</p>
+  </footer>
+  <!-- Analytics Placeholder: Replace YOUR-GA-ID with your Google Analytics ID.
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'YOUR-GA-ID');
+  </script>
+  -->
+  <!-- Birthday greeting: September 26 in Saskatchewan -->
+  <div id="birthday-surprise" hidden role="dialog" aria-modal="true" aria-labelledby="birthday-heading">
+    <div class="birthday-card">
+      <h2 id="birthday-heading">🎉 It's my birthday! 🎂</h2>
+      <p>Thanks for visiting my website. Let's celebrate September 26!</p>
+      <button id="birthday-close" type="button">Explore my site ✨</button>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Regina", month: "numeric", day: "numeric"
+      }).formatToParts(new Date());
+      const month = Number(parts.find(part => part.type === "month").value);
+      const day = Number(parts.find(part => part.type === "day").value);
+      if (month !== 9 || day !== 26) return;
 
-</section>
+      const surprise = document.getElementById("birthday-surprise");
+      const closeButton = document.getElementById("birthday-close");
+      surprise.hidden = false;
+      closeButton.focus();
 
-<!-- ===========================
-     Footer
-=========================== -->
-
-<footer>
-
-    <h3>Syed Awsaf Zarif</h3>
-
-    <p>
-        Developer • Gamer • Creator
-    </p>
-
-    <p>
-
-        Designed & Developed by
-        Syed Awsaf Zarif © 2026
-
-    </p>
-
-</footer>
-
-<!-- ===========================
-     Analytics Placeholder
-
-     Replace YOUR-GA-ID with
-     your Google Analytics ID
-=========================== -->
-
-<!--
-<script async
-src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID">
-</script>
-
-<script>
-
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-
-gtag('config', 'YOUR-GA-ID');
-
-</script>
--->
-
-<script src="script.js"></script>
-
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const colors = ["#ffd166", "#ef476f", "#06d6a0", "#75c9ff", "#ffffff"];
+        for (let i = 0; i < 60; i++) {
+          const piece = document.createElement("span");
+          piece.className = "birthday-confetti";
+          piece.style.left = `${Math.random() * 100}%`;
+          piece.style.backgroundColor = colors[i % colors.length];
+          piece.style.animationDelay = `${Math.random() * 3}s`;
+          piece.style.animationDuration = `${3 + Math.random() * 3}s`;
+          surprise.appendChild(piece);
+        }
+      }
+      closeButton.addEventListener("click", () => surprise.remove());
+    })();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
